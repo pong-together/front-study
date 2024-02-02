@@ -1,12 +1,58 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
-	
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <script src="https://randojs.com/1.1.0.js"></script>
+    <title>퐁투게더</title>
+  </head>
+  <body>
+    <!--로그인 버튼 누르기 전-->
+    <template id="login">
+      <section>
+        <div class="loginStatus" data-component="login-select"></div>
+        <button class="login-btn">로그인하기</button>
+      </section>
+    </template>
+
+    <!--로그인 성공 후-->
+    <template id="language">
+      <section>
+        <div>
+          <select name="language-select" id="language-select">
+            <option value="korean">
+              <img src="./static/korean.png" alt="korean" />한국어
+            </option>
+            <option value="american">
+              <img src="./static/american.png" alt="american" />English
+            </option>
+            <option value="japanese">
+              <img src="./static/japanese.png" alt="japanese" />日本語
+            </option>
+          </select>
+          <input type="submit" value="선택" />
+        </div>
+        <button class="start-btn">시작하기</button>
+      </section>
+    </template>
+
+    <!--앱 뷰-->
+    <template id="app-login">
+      <section class="background-wrapper">
+        <div class="line-bottom"></div>
+        <div class="line-top"></div>
+        <div class="logo-wrapper">
+          <img src="./static/logo.png" alt="메인로고" class="logo" />
+          <div data-component="login"></div>
+          <footer class="footer">제작 팀투게더</footer>
+        </div>
+      </section>
+    </template>
+
+    <div id="root">
+      <div data-component="app"></div>
+    </div>
+    <script type="module" src="index.js"></script>
+  </body>
 </html>
