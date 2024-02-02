@@ -9,6 +9,7 @@ const applyDiff = (parentNode, realNode, virtualNode) => {
   }
   if (isNodeChanged(virtualNode, realNode)) {
     realNode.replaceWith(virtualNode);
+    return ;
   }
 
   const realChildren = Array.from(realNode.children);

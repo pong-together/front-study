@@ -20,7 +20,7 @@ export default (targetElement, state, events) => {
       events.isLoged();
     });
 
-  console.log(newLoginStatus);
+  console.log('child render',newLoginStatus);
 
   return newLoginStatus;
 };

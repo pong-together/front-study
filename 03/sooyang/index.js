@@ -40,6 +40,7 @@ const render = () => {
   window.requestAnimationFrame(() => {
     const $main = document.querySelector("#root");
     const newMain = registry.renderRoot($main, state, events);
+    console.log('after render new main', newMain);
     applyDiff(document.body, $main, newMain);
   });
 };

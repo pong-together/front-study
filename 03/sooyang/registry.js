@@ -8,17 +8,17 @@ const renderWrapper = (component) => {
 
     Array.from(childComponents).forEach((target) => {
       const name = target.dataset.component;
+      console.log('name', name);
 
       const child = registry[name];
+      console.log('child',child);
       if (!child) {
         return;
       }
 
       target.replaceWith(child(target, state, events));
     });
-
-    
-
+    console.log('element',element);
     return element;
   };
 };
