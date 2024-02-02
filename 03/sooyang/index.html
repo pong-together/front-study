@@ -18,20 +18,14 @@
 
     <!--로그인 성공 후-->
     <template id="language">
-      <section>
+      <section data-component="language-start">
         <div>
           <select name="language-select" id="language-select">
-            <option value="korean">
-              <img src="./static/korean.png" alt="korean" />한국어
-            </option>
-            <option value="american">
-              <img src="./static/american.png" alt="american" />English
-            </option>
-            <option value="japanese">
-              <img src="./static/japanese.png" alt="japanese" />日本語
-            </option>
+            <option value="korean">한국어</option>
+            <option value="american">English</option>
+            <option value="japanese">日本語</option>
           </select>
-          <input type="submit" value="선택" />
+          <button class="language-btn">선택</button>
         </div>
         <button class="start-btn">시작하기</button>
       </section>

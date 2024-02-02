@@ -1,11 +1,15 @@
 import loginView from "./view/login.js";
 import appView from "./view/app.js";
+import loginStatusView from "./view/loginStatus.js";
+import languageView from "./view/language.js";
 
 import registry from "./registry.js";
 import applyDiff from "./applyDiff.js";
 
 registry.add("app", appView);
 registry.add("login", loginView);
+registry.add("login-select", loginStatusView);
+registry.add("language-start", languageView);
 
 const state = {
   loginStatus: "anonymous",
@@ -22,9 +26,22 @@ const events = {
     } else if (stateLogin === "fail") {
       state.loginStatus = "fail";
     }
-    console.log(state.loginStatus);
     render();
   },
+  checkLanguage: (language) => {
+    console.log('before language',state.language);
+    if (language == 'korean'){
+      state.language = 'korean';
+    }
+    else if (language == 'american'){
+      state.language = 'american';
+    }
+    else if (language == 'japanese'){
+      state.language = 'japanese';
+    }
+    console.log('after language',state.language);
+    render();
+  }
 };
 
 //anonymous
@@ -40,7 +57,7 @@ const render = () => {
   window.requestAnimationFrame(() => {
     const $main = document.querySelector("#root");
     const newMain = registry.renderRoot($main, state, events);
-    console.log('after render new main', newMain);
+    //console.log("after render new main", newMain);
     applyDiff(document.body, $main, newMain);
   });
 };

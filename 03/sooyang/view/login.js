@@ -9,7 +9,7 @@ const getLoginTemplate = (state) => {
   return template.content.firstElementChild.cloneNode(true);
 };
 
-export default (targetElement, state, events) => {
+export default (targetElement, state, { isLoged, checkLanguage }) => {
   let newLoginStatus = targetElement.cloneNode(true);
   newLoginStatus.innerHTML = "";
 
@@ -17,10 +17,16 @@ export default (targetElement, state, events) => {
 
   newLoginStatus.querySelector(".login-btn") &&
     newLoginStatus.querySelector(".login-btn").addEventListener("click", () => {
-      events.isLoged();
+      isLoged();
     });
 
-  console.log('child render',newLoginStatus);
+  newLoginStatus.querySelector(".language-btn") &&
+    newLoginStatus
+      .querySelector(".language-btn")
+      .addEventListener("click", () => {
+        let lang = document.getElementById("language-select").value
+        checkLanguage(lang);
+      });
 
   return newLoginStatus;
 };
