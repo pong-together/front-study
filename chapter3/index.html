@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./index.css">
+	<title>login</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com"> 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="retangle2"></div>
+		<div class="retangle1"></div>
+		<img src="./img/logo.png" alt="로고" width="658" height="401">
+		<template id="tem1">
+			<div class="login-container">
+				<div class="message" data-component="message"></div>
+				<button class="login">로그인하기</button>
+			</div>
+		</template>
+	</div>
+	<template id="tem2">
+		<div class="select-container">
+			<div class="lang">
+				<select name="languages" id="lang">
+					<option value="ko">한국어</option>
+					<option value="ja">日本語</option>
+					<option value="en">English</option>
+				</select>
+				<button class="select">선택</button>
+			</div>
+			<button class="start" data-component="start">시작하기</button>
+		</div>
+	</template>
+	<div id="root">
+		<div data-component="app"></div>
+	</div>
+	<script type="module" src="index.js"></script>
+</body>
+</html>
