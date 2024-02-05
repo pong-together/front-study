@@ -1,0 +1,45 @@
+import todos from "./todos.js";
+
+//날짜와 시간을 받아오고 새로운 P태그를 만든다음 정보를 출력하는 함수
+const printResult = (action, result) => {
+	const time = (new Date()).toTimeString()
+	const node = document.createElement('p')
+	node.textContent = `${action.toUpperCase()}: ${JSON.stringify(result)} (${time})`
+
+	document.querySelector('div').appendChild(node)
+}
+//각 버튼을 클릭했을 떄 실행될 함수들
+const onListClick = async () => {
+	const result = await todos.list()
+	printResult('list todos', result)
+}
+
+const onAddClick = async () => {
+	const result = await todos.create('A simple todo Element')
+	printResult('add todo', result)
+}
+
+const onUpdateClick = async () => {
+	const list = await todos.list()
+
+	const { id } = list[0]
+	const newTodo = {
+		id, completed: true
+	}
+
+	const result = await todos.update(newTodo)
+	printResult('update todo', result)
+}
+
+const onDeleteClick = async () => {
+	const list = await todos.list()
+	const { id } = list[0]
+
+	const result = await todos.delete(id)
+	printResult('delete todo', result)
+}
+
+document.querySelector('button[data-list]').addEventListener('click', onListClick)
+document.querySelector('button[data-add]').addEventListener('click', onAddClick)
+document.querySelector('button[data-update]').addEventListener('click', onUpdateClick)
+document.querySelector('button[data-delete]').addEventListener('click', onDeleteClick)
