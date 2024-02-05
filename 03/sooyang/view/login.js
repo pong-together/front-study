@@ -20,13 +20,5 @@ export default (targetElement, state, { isLoged, checkLanguage }) => {
       isLoged();
     });
 
-  newLoginStatus.querySelector(".language-btn") &&
-    newLoginStatus
-      .querySelector(".language-btn")
-      .addEventListener("click", () => {
-        let lang = document.getElementById("language-select").value
-        checkLanguage(lang);
-      });
-
   return newLoginStatus;
 };
