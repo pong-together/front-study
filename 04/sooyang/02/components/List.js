@@ -147,9 +147,11 @@ export default class List extends HTMLElement {
   updateList() {
     this.list.innerHTML = "";
 
-    this.todos.map(this.getTodoElement).forEach((element) => {
-      this.list.appendChild(element);
-    });
+    this.todos
+      .map((todo, index) => this.getTodoElement(todo, index))
+      .forEach((element) => {
+        this.list.appendChild(element);
+      });
   }
 
   connectedCallback() {
