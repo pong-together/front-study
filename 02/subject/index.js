@@ -1,6 +1,6 @@
 import	registry	from	'./registry.js'
 import	applyDiff	from	'./applyDiff.js'
-import	loginMSG	from	'./loginMSG'
+import	loginMSG	from	'./loginMSG.js'
 
 registry.add('login', loginMSG)
 
