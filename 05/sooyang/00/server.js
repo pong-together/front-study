@@ -1,11 +1,18 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 const findIndex = require("lodash.findindex");
+const cors = require("cors");
 
 const PORT = 8080;
 
 const app = express();
+
+app.use(cors());
+//app.use(cors({
+//  origin: 'http://localhost:8081' // 접근을 허용할 도메인
+//}));
+
 let todos = [];
 
 app.use(express.static("public"));
