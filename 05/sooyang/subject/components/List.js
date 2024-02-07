@@ -40,12 +40,12 @@ export default class List extends HTMLElement {
 
     const firstList = this.getPostItem(
       {
-        id: "아이디",
+        id: "ID",
         title: "제목",
         content: "내용",
         nickname: "닉네임",
         like: "",
-        date: "날짜",
+        date: "게시글 작성날짜",
       },
       0
     );
