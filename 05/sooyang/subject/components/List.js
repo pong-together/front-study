@@ -19,7 +19,8 @@ export default class List extends HTMLElement {
   }
 
   getPostItem(post, index) {
-    const { id, title, content, nickname, like, date } = post;
+    console.log(post);
+    const { id, title, content, nickname, like_count, date } = post;
 
     const element = this.createNewNode();
 
@@ -28,7 +29,7 @@ export default class List extends HTMLElement {
     element.querySelector(".content").textContent = content;
     element.querySelector(".nickname").textContent = nickname;
     element.querySelector(".like").textContent = `${
-      like === undefined ? 0 : like
+      like_count === undefined ? 0 : like_count
     }likes`;
     element.querySelector(".date").textContent = date;
 
