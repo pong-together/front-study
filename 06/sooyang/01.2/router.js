@@ -38,5 +38,9 @@ export default () => {
 
     checkRouter();
   };
+
+  router.navigate = (fragment) => {
+      window.location.hash = fragment;
+  }
   return router;
 };
